@@ -180,7 +180,7 @@ class ConsoleStickerCreator:
             usedIndexes.append(int(index))
         
         # Clear all that were not added
-        allIndexes=list(range(1,24))
+        allIndexes=list(range(1,25))
         emptySticks=[x for x in allIndexes if x not in usedIndexes]
         
         print('Mazu policka '+str(emptySticks))
