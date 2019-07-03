@@ -27,6 +27,7 @@ import xmltodict
 import urllib
 import re
 import html
+import os
 
 class Order:
     '''
@@ -199,7 +200,10 @@ if __name__ == '__main__':
     while (cont == 'a'):
         indexes = (input('Cisla stitku oddelena mezerou (nebo Enter pro vychozi): ') or '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24').split(' ')
         fileName = input('Ulozit jako (nebo Enter pro vychozi): ') or str.format('out{0}.html', cnt) 
-        leftCnt = stickerCreator.createStickerPage(indexes, products, fileName) 
+        leftCnt = stickerCreator.createStickerPage(indexes, products, fileName)
+        print('Prevadim na obrazek.')
+        if os.system('wkhtmltoimage --format png --quality 100 -q '+fileName+' '+fileName+'.png') != 0 :
+            print('Conversion failed.')
         print('Stitky ulozeny. {0} polozek zbyva.'.format(leftCnt))
         if (leftCnt > 0):
             cont=input('Vytvorit nove stitky (a/n)? ')
