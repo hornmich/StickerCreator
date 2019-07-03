@@ -169,7 +169,7 @@ class ConsoleStickerCreator:
     def createStickerPage(self, indexes, products, fileName):     
         usedIndexes=[]
         print('Nacitam sablonu.')
-        stickerPage=StickerPage('../template.html')
+        stickerPage=StickerPage('template.html')
         for index in indexes:
             if (not products):
                 break
