@@ -167,6 +167,7 @@ class ConsoleStickerCreator:
         return products
         
     def createStickerPage(self, indexes, products, fileName):     
+        usedIndexes=[]
         print('Nacitam sablonu.')
         stickerPage=StickerPage('../template.html')
         for index in indexes:
@@ -176,11 +177,11 @@ class ConsoleStickerCreator:
             index = int(index)
             print('Pridavam stitek {0} s produktem {1}'.format(index, prod))
             stickerPage.putSticker(index, prod)
+            usedIndexes.append(int(index))
         
         # Clear all that were not added
         allIndexes=list(range(1,24))
-        indexes=[int(x) for x in indexes]
-        emptySticks=[x for x in allIndexes if x not in indexes]
+        emptySticks=[x for x in allIndexes if x not in usedIndexes]
         
         print('Mazu policka '+str(emptySticks))
         for emptyStick in emptySticks:
