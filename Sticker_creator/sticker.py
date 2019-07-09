@@ -68,7 +68,7 @@ class Order:
         Return a list of product names, extracted from Eshop-rychle exported orders.
         '''
         order_products=[]
-        with open(url) as fd:
+        with urllib.request.urlopen(url) as fd:
             print('Making list of products names in order.')
             orders = xmltodict.parse(fd.read())['orders']['order']
             if (type(orders) != list):
@@ -158,7 +158,7 @@ class StickerPage:
 class ConsoleStickerCreator:
     def loadOrderProducts(self):
         feedXmlUrl=input('Heureka URL feed (nebo Enter pro vychozi): ') or 'https://www.vzorkyplenek.cz/fotky74713/xml/heureka_cz.xml'
-        orderXmlUrl=input('Objednavky URL: ')  or '5b08d8e9af1c6d7d73bf6d9d48e5d9ab.xml'
+        orderXmlUrl=input('Objednavky URL: ')
         
         order = Order(feedXmlUrl, orderXmlUrl)
         print(order.shop_prods_imgs)
