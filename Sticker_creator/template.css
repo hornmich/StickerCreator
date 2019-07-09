@@ -4,14 +4,15 @@
 }
 
 body {
-	font-family: 'indieflower';		
+	font-family: 'indieflower';
+	font-size: x-large;		
 }
 
 .stickers {
 	table-layout: fixed;
 	width: 100%;
-	max-width: 20cm;
-	border: none
+	max-width: 40cm;
+	border: none;
 	vertical-align:middle;
 	align-content: center;
 }
@@ -20,8 +21,8 @@ body {
 
 	overflow: hidden;
 	text-overflow: ellipsis;
-	height: 120px;
-	max-height: 120px;
+	height: 180px;
+	max-height: 180px;
 	border: none
 }
 
