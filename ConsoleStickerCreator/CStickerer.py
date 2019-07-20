@@ -32,7 +32,7 @@ class ConsoleStickerCreator:
         feedXmlUrl=input('Heureka URL feed (nebo Enter pro vychozi): ') or 'https://www.vzorkyplenek.cz/fotky74713/xml/heureka_cz.xml'
         orderXmlUrl=input('Objednavky URL: ')
         
-        order = Order(feedXmlUrl, orderXmlUrl)
+        order = Order.Order(feedXmlUrl, orderXmlUrl)
         print(order.shop_prods_imgs)
         print(order.order_prods)
         print(order.order_prods_imgs)
@@ -42,7 +42,7 @@ class ConsoleStickerCreator:
     def createStickerPage(self, indexes, products, fileName):     
         usedIndexes=[]
         print('Nacitam sablonu.')
-        stickerPage=StickerPage('template.html')
+        stickerPage=StickerPage.StickerPage('template.html')
         for index in indexes:
             if (not products):
                 break
