@@ -24,20 +24,14 @@ Created on 15. 6. 2019
 '''
 
 import os
-from Sticker_creator import Order
+from Sticker_creator import Orders
 from Sticker_creator import StickerPage
 
 class ConsoleStickerCreator:
-    def loadOrderProducts(self):
+    def loadOrders(self):
         feedXmlUrl=input('Heureka URL feed (nebo Enter pro vychozi): ') or 'https://www.vzorkyplenek.cz/fotky74713/xml/heureka_cz.xml'
         orderXmlUrl=input('Objednavky URL: ')
-        
-        order = Order.Order(feedXmlUrl, orderXmlUrl)
-        print(order.shop_prods_imgs)
-        print(order.order_prods)
-        print(order.order_prods_imgs)
-        products=order.order_prods_imgs
-        return products
+        return Orders.Orders(feedXmlUrl, orderXmlUrl).orders
         
     def createStickerPage(self, indexes, products, fileName):     
         usedIndexes=[]
@@ -66,7 +60,34 @@ class ConsoleStickerCreator:
 
 if __name__ == '__main__':
     stickerCreator=ConsoleStickerCreator()
-    products=stickerCreator.loadOrderProducts()
+    orders=stickerCreator.loadOrders()
+    
+    order_num = 1
+    orders_idxs = ''
+    for order in orders:
+        print('Objednávka #', order_num)
+        print('\tID: ', order.orderId)
+        print('\tStav: ', order.state)
+        print('\tDatum: ', order.date)
+        print('\tProdukty:')
+        for prod in order.products:
+            print('\t', ' - ', prod.__str__())
+        print('=======')
+        orders_idxs = orders_idxs + ' ' + str(order_num)
+        order_num = order_num + 1
+    
+    orders_idxs = orders_idxs[1:]
+    orders_idxs = (input('Cisla objednavek oddelena mezerou (nebo Enter pro vse): ') or orders_idxs).split(' ')
+    products=[]
+    for order_idx in orders_idxs: 
+        order_idx=int(order_idx)-1
+        if (order_idx >= len(orders)) :
+            continue
+        for prod in orders[order_idx].products:
+            products.append(prod)                                                                                                 
+    
+    print('Pocet stitku: ', len(products))
+    
     cont='a'
     cnt=1
     while (cont == 'a'):

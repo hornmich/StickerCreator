@@ -24,8 +24,8 @@ class StickerPage:
         '''
         Insert sticker on a position given by index.
         '''
-        image=item[1]
-        label=item[0]
+        image=item.imgurl
+        label=item.label
         index_str='{0:02d}'.format(index)
         timgkey=self.TIMGPREFIX+index_str
         tlblkey=self.TLBLPREFIX+index_str
