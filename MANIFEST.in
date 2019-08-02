@@ -1,0 +1,1 @@
+recursive-include consoleApp template.html template.css

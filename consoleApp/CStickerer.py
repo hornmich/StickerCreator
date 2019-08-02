@@ -14,13 +14,6 @@ optimize usage of sticker lists.
 Created on 15. 6. 2019
 
 @author: Michal Horn
-@todo: Automatic page fill clear empty stickers
-@todo: Last one always left uncleared
-@todo: Make orders load from url
-@todo: Reorganize directories to have CSS and template on the same place as generator
-@todo: Call to image converter
-@todo: Add borders to page
-@todo: automatically crop image
 '''
 
 import os
@@ -57,7 +50,7 @@ class ConsoleStickerCreator:
         stickerPage.save(fileName)
         leftCnt = len(products)
         return leftCnt
-
+    
 if __name__ == '__main__':
     stickerCreator=ConsoleStickerCreator()
     orders=stickerCreator.loadOrders()
