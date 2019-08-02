@@ -29,7 +29,8 @@ class ConsoleStickerCreator:
     def createStickerPage(self, indexes, products, fileName):     
         usedIndexes=[]
         print('Nacitam sablonu.')
-        stickerPage=StickerPage.StickerPage('template.html')
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        stickerPage=StickerPage.StickerPage(dir_path+'/template.html')
         for index in indexes:
             if (not products):
                 break
