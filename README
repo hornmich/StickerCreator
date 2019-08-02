@@ -1,0 +1,22 @@
+= Sticker creator =
+
+This application is a utility for automated creation of stickers from e-shop orders.
+
+The utility is designed to work with eshop rychle platform for creating quickly eshops.
+
+The expected data feed is a Heureka XML feed file and eshop-rychle orders XML export file.
+
+In principle, the utility downloads the whole portfolio and its metadata (name, images,...), it downloads the exported orders and them maps the orders to the portfolio data. Mapped items are put in a HTML page, cotaining table of stickers. At last, to prevent any missinterpretation, the whole page is converted into an image and cropped to fit a A4 page to be printed.
+
+== Installation ==
+Download the distribution archive and decompress.
+
+Execute the setup.py script to install, e.g. 
+
+	--> sudo python3 setup.py install
+
+== Execution ==
+Run from your command line (or create launcher)
+
+	--> python3 CStickerer.py
+
