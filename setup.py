@@ -18,7 +18,6 @@ setup(
     package_data={'consoleApp': ['*.html', '*.css']},
     include_package_data=True,
 
-    scripts=['consoleApp/CStickerer.py'],
     # Details
     url="https://github.com/hornmich/StickerCreator",
 
