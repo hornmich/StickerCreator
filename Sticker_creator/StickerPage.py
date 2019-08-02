@@ -3,6 +3,7 @@ Created on 9. 7. 2019
 
 @author: michal
 '''
+import os
 
 class StickerPage:
     '''
@@ -11,6 +12,7 @@ class StickerPage:
     tempatePage = ''
     TIMGPREFIX='ST_IMG_'
     TLBLPREFIX='ST_LBL_'
+    TCSSPATHPREFIX='CSS_PATH'
     
     def __init__(self, templateFile) :
         '''
@@ -18,6 +20,7 @@ class StickerPage:
         '''
         with open(templateFile) as template:
             self.tempatePage = template.read();
+            self.tempatePage = self.tempatePage.replace(self.TCSSPATHPREFIX, os.path.dirname(os.path.realpath(__file__))+'/../consoleApp/')
             template.close()
             
     def putSticker(self, index, item):
