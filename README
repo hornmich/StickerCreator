@@ -16,7 +16,7 @@ Execute the setup.py script to install, e.g.
 	--> sudo python3 setup.py install
 
 == Execution ==
-Run from your command line (or create launcher)
+Run from your command line (or create launcher) to execute from the installation location. E.g.
 
-	--> python3 CStickerer.py
+	--> python3 /usr/local/lib/python3.5/dist-packages/consoleApp/CStickerer.py
 
