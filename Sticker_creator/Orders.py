@@ -66,9 +66,12 @@ class Orders:
             xml = [xml]
             
         for xmlProduct in xml:
+            prod_name=html.unescape(xmlProduct['name'])
+            if prod_name == 'Slevový kupón / Dárkový šek':
+            	print('Přeskakuiji kupon.')
+            	continue
             cnt=int(xmlProduct['pieces'])
             print('\t\t{0} products in order.'.format(cnt))
-            prod_name=html.unescape(xmlProduct['name'])
             index = re.search("[0-9]\ *ks", html.unescape(xmlProduct['name']))
             prod=xmlProduct['name'][:index.end()]
             print('\t\t{0}->{1}[0-{2}]->{3}'.format(xmlProduct['name'], prod_name, index.end(), prod))
