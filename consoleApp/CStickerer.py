@@ -89,7 +89,7 @@ if __name__ == '__main__':
         fileName = input('Ulozit jako (nebo Enter pro vychozi): ') or str.format('out{0}.html', cnt) 
         leftCnt = stickerCreator.createStickerPage(indexes, products, fileName)
         print('Prevadim na obrazek.')
-        if os.system('wkhtmltoimage --format png --quality 100 --crop-y 50 --crop-x 30 --crop-w 980 --crop-h 1450 -q '+fileName+' '+fileName+'.png') != 0 :
+        if os.system('wkhtmltoimage --enable-local-file-access --format png --quality 100 --crop-y 50 --crop-x 30 --crop-w 980 --crop-h 1450 -q '+fileName+' '+fileName+'.png') != 0 :
             print('Conversion failed.')
         print('Stitky ulozeny. {0} polozek zbyva.'.format(leftCnt))
         if (leftCnt > 0):
